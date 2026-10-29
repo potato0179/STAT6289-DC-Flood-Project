@@ -15,10 +15,10 @@ A total of 125 documented flood events were examined.
 
 - Complete MRMS coverage: 26 events
 - Partial MRMS coverage: 1 event
-- No MRMS coverage in the selected archive: 98 events
+- Missing MRMS coverage: 97 events
+- Zero-duration event: 1 event
 
-The event-based analysis required 818 hourly observations,
-of which 128 event-hour matches were available.
+The initial archive-availability analysis counted 818 hourly observations, including one zero-duration event. The final event-based coverage analysis excludes this event, resulting in 817 expected event-hours, of which 128 were available.
 
 ## Archive File Availability
 
