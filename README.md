@@ -48,6 +48,16 @@ Source: NOAA NCEI GHCN-Daily, accessed through the daily-summaries API.
 
 The exact daily observation cutoff times have not been verified. Daily station precipitation must not be interpreted as exact hourly flood-event rainfall.
 
+### Independent DC Station Investigation
+
+An independent investigation of precipitation stations within
+Washington, DC, was conducted using NOAA NCEI station records.
+
+The search strategy, candidate stations, geographic locations,
+data availability, access methods, and limitations are documented in:
+
+[DC Station Investigation Report](reports/dc_station_investigation.md)
+
 ## 3. HDF5 Database Structure
 
 Database: `data/processed/dc_flood_database.h5`
