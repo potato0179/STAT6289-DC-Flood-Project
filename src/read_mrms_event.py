@@ -6,7 +6,7 @@ import numpy as np
 DATABASE = "data/processed/dc_flood_database.h5"
 
 
-def get_event_rasters(event_id):
+def get_event_rasters(event_id, time_utc=None):
     """Read MRMS rasters overlapping a flood event."""
 
     results = []
@@ -27,6 +27,18 @@ def get_event_rasters(event_id):
             )
 
             if rain_start < end and rain_end > start:
+
+                if time_utc is not None:
+                    requested_time = pd.Timestamp(time_utc)
+
+                    if requested_time.tzinfo is None:
+                        raise ValueError(
+                            "time_utc must include a timezone"
+                        )
+
+                    if rain_end != requested_time:
+                        continue
+
                 results.append({
                     "time": rain_end,
                     "precipitation": group["precipitation"][:],
@@ -38,16 +50,18 @@ def get_event_rasters(event_id):
     return sorted(results, key=lambda item: item["time"])
 
 
-# Demonstrate the function
-rasters = get_event_rasters("event_125")
+if __name__ == "__main__":
 
-print("Event: event_125")
-print("Number of matching MRMS rasters:", len(rasters))
-
-for raster in rasters:
-    print(
-        raster["time"],
-        "Shape:", raster["precipitation"].shape,
-        "Maximum:", np.nanmax(raster["precipitation"]),
-        raster["units"]
+    rasters = get_event_rasters(
+        "event_125",
+        "2025-07-19T23:00:00Z"
     )
+
+    print("=== Selected MRMS Raster ===")
+    print("Matching rasters:", len(rasters))
+
+    for raster in rasters:
+        print("Time:", raster["time"])
+        print("Shape:", raster["precipitation"].shape)
+        print("Maximum:", np.nanmax(raster["precipitation"]))
+        print("Units:", raster["units"])

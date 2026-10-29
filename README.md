@@ -157,6 +157,43 @@ python src/plot_event_rainfall.py
 
 Generated figures are stored in `figures/`.
 
+### Reusable HDF5 Data Access
+
+List available database contents:
+
+```bash
+python src/list_hdf5_contents.py
+```
+
+Retrieve MRMS rasters for a selected flood event:
+
+```python
+from src.read_mrms_event import get_event_rasters
+
+rasters = get_event_rasters("event_125")
+
+selected = get_event_rasters(
+    "event_125",
+    "2025-07-19T23:00:00Z"
+)
+```
+
+Retrieve daily station precipitation:
+
+```python
+from src.read_station_timeseries import get_station_timeseries
+
+daily = get_station_timeseries(
+    "US1DCDC0014",
+    "2021-09-15",
+    "2021-09-18"
+)
+```
+
+These functions read the processed HDF5 database directly.
+Station dates are source-reported observation dates,
+not verified hourly event intervals.
+
 ## 7. Data Coverage and Limitations
 
 MRMS event coverage:
