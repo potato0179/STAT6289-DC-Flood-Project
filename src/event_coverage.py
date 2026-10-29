@@ -29,9 +29,18 @@ with h5py.File(DATABASE, "r") as h5:
         first = start.floor("h") + pd.Timedelta(hours=1)
         last = end.ceil("h")
 
-        # Include zero-duration events for review
-        if last < first:
-            last = first
+        # Zero-duration events have no accumulation interval
+        if end == start:
+            records.append({
+                "event_id": event_id,
+                "start_utc": start,
+                "end_utc": end,
+                "expected_hours": 0,
+                "available_hours": 0,
+                "coverage_fraction": float("nan"),
+                "status": "zero_duration"
+            })
+            continue
 
         expected = pd.date_range(
             first, last, freq="h"

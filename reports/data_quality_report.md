@@ -6,7 +6,8 @@ Source: NOAA MRMS MultiSensor_QPE_01H_Pass2
 
 Event coverage:
 
-- missing: 98 events
+- missing: 97 events
+- zero_duration: 1 event
 - complete: 26 events
 - partial: 1 events
 

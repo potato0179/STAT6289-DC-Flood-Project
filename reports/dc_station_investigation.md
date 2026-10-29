@@ -29,6 +29,25 @@ Both stations are located in Washington, DC, based on their reported locations.
 
 Washington Reagan National Airport (USW00013743) was also returned during the geographic search, but it is located in Virginia and was not treated as an in-DC station.
 
+### Verification Against the Official DC Boundary
+
+The reported NOAA station coordinates were checked against
+the official DC GIS administrative boundary (Layer 10:
+DC Boundary), using an ArcGIS point-intersection query
+with EPSG:4326 coordinates.
+
+Results:
+- US1DCDC0014: inside DC (1 boundary match)
+- US1DCDC0026: inside DC (1 boundary match)
+
+Official GIS service:
+https://maps2.dcgis.dc.gov/dcgis/rest/services/DCGIS_DATA/Administrative_Other_Boundaries/MapServer/10
+
+This confirms that both reported station coordinates fall
+within the official Washington, DC boundary. Washington
+Reagan National Airport, located in Virginia, was not
+classified as an in-DC precipitation station.
+
 ## 4. Data Access
 
 Daily precipitation records were retrieved using the NOAA NCEI Data Access API:

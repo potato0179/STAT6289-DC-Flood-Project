@@ -114,6 +114,8 @@ python src/add_events.py
 ```bash
 python src/plan_mrms_downloads.py
 python src/filter_mrms_plan.py
+python src/check_mrms_availability.py
+python src/prepare_mrms_downloads.py
 ```
 
 MRMS download availability was checked separately. The available-file queue is stored in:
@@ -204,12 +206,24 @@ These functions read the processed HDF5 database directly.
 Station dates are source-reported observation dates,
 not verified hourly event intervals.
 
+### MRMS Event Visualization: Temporal Interpretation
+
+For event_125 (2025-07-19 22:00–23:34 UTC),
+the visualization combines two overlapping one-hour MRMS
+accumulation intervals: 22:00–23:00 and 23:00–00:00 UTC.
+
+The plotted two-hour total therefore covers a longer period
+than the 94-minute flood event. Its maximum of 43.9 mm
+must not be interpreted as precipitation accumulated
+exclusively during the exact event duration.
+
 ## 7. Data Coverage and Limitations
 
 MRMS event coverage:
 - Complete: 26 events
 - Partial: 1 event
-- Missing: 98 events
+- Missing: 97 events
+- Zero-duration: 1 event
 
 DC station event-date coverage:
 - US1DCDC0014: 43 complete, 0 partial, 82 missing

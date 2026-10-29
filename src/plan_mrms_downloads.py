@@ -15,6 +15,13 @@ for i, row in events.iterrows():
 
     event_id = f"event_{i + 1:03d}"
 
+
+    # A zero-duration event has no hourly accumulation interval
+    if start == end:
+        print(f"Skipping zero-duration event: {event_id}")
+        continue
+
+
     # Generate hourly MRMS interval end times
     first_hour = start.floor("h") + pd.Timedelta(hours=1)
     last_hour = end.ceil("h")
