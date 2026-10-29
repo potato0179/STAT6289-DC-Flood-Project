@@ -218,3 +218,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Large raw MRMS downloads
+data/raw/mrms/
+
+# Temporary files
+__pycache__/
+*.pyc
+*.idx
+
+# Python environments
+.venv/
+venv/
+
+# Operating system files
+.DS_Store
