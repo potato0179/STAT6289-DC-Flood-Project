@@ -14,15 +14,14 @@ output_dir = Path("data/raw/mrms")
 output_dir.mkdir(parents=True, exist_ok=True)
 
 # Download all available MRMS files
-test_queue = queue
 
 results = []
 
-for i, row in enumerate(test_queue.itertuples(), start=1):
+for i, row in enumerate(queue.itertuples(), start=1):
 
     output_file = output_dir / row.filename
 
-    print(f"[{i}/{len(test_queue)}] {row.filename}")
+    print(f"[{i}/{len(queue)}] {row.filename}")
 
     if output_file.exists() and output_file.stat().st_size > 0:
         print("  Already downloaded")

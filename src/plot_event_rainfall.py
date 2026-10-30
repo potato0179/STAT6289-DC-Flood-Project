@@ -50,7 +50,7 @@ with h5py.File(database, "r") as h5:
 
     ax.set_title(
         "NOAA MRMS — Event 125\n"
-        "July 19, 2025, 22:00–00:00 UTC"
+        "July 19, 22:00 – July 20, 00:00 UTC (2025)"
     )
 
     ax.set_xlabel("Longitude")

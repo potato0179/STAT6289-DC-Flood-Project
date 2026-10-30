@@ -18,7 +18,7 @@ lines = [
 ]
 
 for status, count in mrms["status"].value_counts().items():
-    lines.append(f"- {status}: {count} events")
+    lines.append(f"- {status}: {count} {'event' if count == 1 else 'events'}")
 
 lines.extend([
     "",

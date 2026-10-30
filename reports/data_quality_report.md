@@ -7,9 +7,9 @@ Source: NOAA MRMS MultiSensor_QPE_01H_Pass2
 Event coverage:
 
 - missing: 97 events
-- zero_duration: 1 event
 - complete: 26 events
-- partial: 1 events
+- zero_duration: 1 event
+- partial: 1 event
 
 Missing MRMS archive files are not interpreted as zero rainfall.
 
